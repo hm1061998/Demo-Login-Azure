@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.bg-left {
+  background-image: url('/bg-login.png');
+  width: 100%;
+  height: 100%;
+}
+
+.content-right {
+  width: 400px;
+
+}
+
+.login-title {
+  overflow: hidden;
+  color: var(--Typography-Label, rgba(22, 28, 36, 0.90));
+  text-overflow: ellipsis;
+  /* Heading/H4 • 30px */
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 38px;
+  /* 126.667% */
+}
+
+.login-subTitle {
+  overflow: hidden;
+  color: var(--Typography-Subtitle, rgba(22, 28, 36, 0.60));
+  text-overflow: ellipsis;
+
+  /* Subtitle/Subtitle 1 • 18px */
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  /* 155.556% */
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  align-self: stretch;
+  margin-top: 24px;
+}
+
+.formItem-label {
+  color: var(--Typography-Label, rgba(22, 28, 36, 0.90));
+
+  /* Label/Label 3 • 14px */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  /* 157.143% */
+}
+
+.formItem-layout_input {
+  display: flex;
+  height: 48px;
+  padding: 0px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--Border-Divider, rgba(22, 28, 36, 0.08));
+  background: var(--Background-Default-Foreground, #FFF);
+}
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  min-height: 48px;
+  margin-top: 24px;
+  cursor: pointer;
+  background: var(--Primary-Default-Main, #0968D2);
+}
+
+.btn-login_txt {
+  color: var(--Primary-Default-Contrast-Text, #FFF);
+
+  /* Button text/Button text 6 • 16px */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  /* 150% */
+}
