@@ -26,7 +26,7 @@ const Home = () => {
 
     sessionStorage.removeItem("keyLogin");
     window.location.href = "/";
-    myMSALObj.logout();
+    // myMSALObj.logout();
   };
   return (
     <div className="w-screen h-screen bg-white flex justify-center">
