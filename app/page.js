@@ -37,7 +37,7 @@ export default function Login() {
       // }
       const getToken = sessionStorage.getItem("keyLogin");
       if (getToken) {
-        router.push("/dashboard", { scroll: false });
+        router.push("/workflow", { scroll: false });
       }
     };
     onLogin();

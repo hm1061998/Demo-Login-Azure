@@ -10,7 +10,10 @@ const LoginButton = () => {
       auth: {
         clientId: "aabfa23b-fc48-4e80-8f64-1e73f88bc420", // this is a fake id
         authority: "https://login.microsoftonline.com/common",
-        redirectUri: "https://demo-login-azure.vercel.app/",
+        redirectUri:
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : "https://demo-login-azure.vercel.app/",
       },
       cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -50,7 +53,7 @@ const LoginButton = () => {
       const res = await myMSALObj.loginPopup(loginRequest);
       console.log("response login", res);
       sessionStorage.setItem("keyLogin", res?.idToken?.rawIdToken);
-      router.push("/dashboard", { scroll: false });
+      router.push("/workflow", { scroll: false });
     } catch (err) {
       sessionStorage.removeItem("keyLogin");
       console.log("err login", err);
