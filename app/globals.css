@@ -125,17 +125,7 @@ body {
   margin-top: 24px;
   cursor: pointer;
   background: var(--Primary-Default-Main, #0968D2);
-}
-
-.btn-login_txt {
-  color: var(--Primary-Default-Contrast-Text, #FFF);
-
-  /* Button text/Button text 6 • 16px */
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  /* 150% */
+  position: relative;
 }
 
 .btn-login-with-azure {
@@ -149,7 +139,137 @@ body {
   height: 48px;
   margin-top: 16px;
   cursor: pointer;
+  position: relative;
 }
+
+.btn-login::after {
+  content: "";
+  background: #0967d2cb;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.8s;
+  z-index: 0;
+  border-radius: 8px;
+}
+
+/* .btn-login-with-azure::after {
+  content: "";
+  background: #0967d2cb;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.8s
+} */
+
+.btn-login:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.container-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: var(--Typography-Label, rgba(22, 28, 36, 0.90));
+
+  /* Label/Label 4 • 14px */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  /* 157.143% */
+
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked~.checkmark {
+  background-color: #0968D2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.btn-login-with-azure:hover {
+  background: var(--Primary-Default-Main, #68d8bc);
+}
+
+.btn-login_txt {
+  color: var(--Primary-Default-Contrast-Text, #FFF);
+
+  /* Button text/Button text 6 • 16px */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  /* 150% */
+}
+
+
 
 .content-right_footer {
   color: var(--Typography-Subtitle, rgba(22, 28, 36, 0.60));
