@@ -14,6 +14,7 @@ import {
   nodes as initialNodes,
   edges as initialEdges,
 } from "@/components/workflow/initial-elements";
+
 import AnnotationNode from "@/components/workflow/AnnotationNode";
 import ToolbarNode from "@/components/workflow/ToolbarNode";
 import ResizerNode from "@/components/workflow/ResizerNode";
@@ -45,8 +46,8 @@ const nodeClassName = (node) => node.type;
 const OverviewFlow = () => {
   const [menu, setMenu] = useState(null);
   const ref = useRef(null);
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
 
   useEffect(() => {
     const onLogin = async () => {
@@ -93,12 +94,6 @@ const OverviewFlow = () => {
 
   return (
     <div className="h-screen">
-      <div className="flex items-center justify-center w-full">
-        <div type="button" className="btn-login w-40" onClick={onLogout}>
-          <p className="btn-login_txt">Đăng xuất</p>
-        </div>
-      </div>
-
       <ReactFlow
         ref={ref}
         nodes={nodes}
@@ -120,9 +115,20 @@ const OverviewFlow = () => {
 
         {menu && <ContextMenu onClick={onPaneClick} {...menu} />}
 
+        <Panel position="top-left" className="bg-white pt-2 pl-2">
+          <AddNode type="circle" />
+          <AddNode type="diamond" />
+          <AddNode type="square" />
+        </Panel>
         <Panel position="top-right">
-          {/* <button onClick={() => {}}>vertical layout</button> */}
-          <AddNode setNodes={setNodes} />
+          <div
+            type="button"
+            className="btn-login w-40"
+            style={{ marginTop: 0 }}
+            onClick={onLogout}
+          >
+            <p className="btn-login_txt">Đăng xuất</p>
+          </div>
         </Panel>
       </ReactFlow>
     </div>
