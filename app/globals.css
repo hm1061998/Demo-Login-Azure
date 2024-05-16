@@ -101,6 +101,17 @@ body {
   background: var(--Background-Default-Foreground, #FFF);
 }
 
+.formItem-input {
+  height: 100%;
+  width: 100%;
+  border: none
+}
+
+.formItem-input:focus-visible {
+  border: none;
+  outline: none;
+}
+
 .forgot-pass {
   color: var(--Primary-Default-Main, #0968D2);
 
